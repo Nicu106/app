@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
     <title>@yield('title', 'My Mobile App')</title>
-
+    <link href="{{ asset('style/header.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 
@@ -27,7 +29,7 @@
 
 <!-- Logo at the Top -->
 <header class="text-center py-3 border-bottom">
-    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="app-logo">
+    <h1 class="logo">Service</h1>
 </header>
 
 <!-- Main Content -->
@@ -36,23 +38,54 @@
 </main>
 
 <!-- Bottom Dark Navigation Bar -->
-<nav class="navbar navbar-dark bg-dark fixed-bottom border-top">
+<nav class="navbar navbar-dark bg-dark fixed-bottom border-top" style="padding: 0.5rem 0;">
     <div class="container d-flex justify-content-around">
-        <a href="{{route('home')}}" class="navbar-icons text-center active:">
-            <i class="bi bi-house-door"></i> <!-- Home Icon -->
-            <div class="small">Home</div>
+        <!-- Home -->
+        <a href="{{route('home')}}" class="navbar-icons text-center" style="font-size: 1rem; padding: 0.4rem;">
+            <i class="bi bi-house-door" style="font-size: 1.25rem;"></i>
+            <div class="small" style="font-size: 0.8rem;">Home</div>
         </a>
-        <a href="{{route('profile')}}" class="navbar-icons text-center">
-            <i class="bi bi-person"></i> <!-- Profile Icon -->
-            <div class="small">Profile</div>
+        <!-- Profile -->
+        <a href="{{route('profile')}}" class="navbar-icons text-center" style="font-size: 1rem; padding: 0.4rem;">
+            <i class="bi bi-person" style="font-size: 1.25rem;"></i>
+            <div class="small" style="font-size: 0.8rem;">Profile</div>
         </a>
-        <a href="{{route('chat')}}" class="navbar-icons text-center">
-            <i class="bi bi-chat"></i> <!-- Chat Icon -->
-            <div class="small">Chat</div>
+        <!-- Chat -->
+        <a href="{{route('chat')}}" class="navbar-icons text-center" style="font-size: 1rem; padding: 0.4rem;">
+            <i class="bi bi-chat" style="font-size: 1.25rem;"></i>
+            <div class="small" style="font-size: 0.8rem;">Chat</div>
+        </a>
+        <!-- Booked -->
+        <a href="{{route('booked')}}" class="navbar-icons text-center" style="font-size: 1rem; padding: 0.4rem;">
+            <i class="bi bi-calendar-check" style="font-size: 1.25rem;"></i>
+            <div class="small" style="font-size: 0.8rem;">Booked</div>
         </a>
     </div>
 </nav>
+<script>
+    // Detect iOS
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
+    // Check if app is not installed as standalone
+    const isInStandaloneMode = () => window.navigator.standalone === true;
+
+    if (isIOS && !isInStandaloneMode()) {
+        document.addEventListener('DOMContentLoaded', () => {
+            const prompt = document.createElement('div');
+            prompt.innerHTML = `
+        <div style="position: fixed; bottom: 20px; left: 20px; right: 20px; padding: 10px; background: rgba(0,0,0,0.8); color: white; text-align: center; font-size: 14px; border-radius: 8px;">
+          <p style="margin: 0;">To add this app to your home screen: tap <strong>Share</strong> and then <strong>Add to Home Screen</strong>.</p>
+        </div>
+      `;
+            document.body.appendChild(prompt);
+
+            // Remove prompt after a few seconds
+            setTimeout(() => {
+                prompt.remove();
+            }, 8000);
+        });
+    }
+</script>
 <!-- Bootstrap Icons and JavaScript -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

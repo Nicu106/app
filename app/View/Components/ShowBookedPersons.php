@@ -1,26 +1,37 @@
 <?php
 
-namespace App\View\Components;
-
-use Closure;
-use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 use Illuminate\View\Component;
 
-class showBookedPersons extends Component
+class ShowBookedPersons extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public function showBookedPersons(Request $request)
     {
-        //
+        $bookedPersons = [];
+
+        // Generate random data for booked persons
+        for ($i = 0; $i < 10; $i++) {
+            $name = 'Person ' . rand(1, 100); // Generate a random name
+            $bookingDate = date('Y-m-d H:i:s', rand(strtotime('-1 week'), strtotime('+1 week'))); // Random booking date within the last week
+
+            $bookedPersons[] = [
+                'name' => $name,
+                'booking_date' => $bookingDate,
+            ];
+        }
+
+        // Check if the request wants JSON response
+        if ($request->wantsJson()) {
+            return response()->json($bookedPersons);
+        }
+
+        // Render the view with the bookedPersons variable
+        return view('dm-chat', ['bookedPersons' => $bookedPersons]);
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
-        return view('components.show-booked-persons');
+        // Return a view or component for rendering
+        return view('dm-chat'); // Adjust the view name as needed
     }
 }

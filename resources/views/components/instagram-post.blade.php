@@ -5,7 +5,7 @@
 
         <!-- Post Header: User Profile -->
         <div class="card-header d-flex align-items-center">
-            <img src="{{ $profilePic }}" alt="Profile Picture" class="rounded-circle" width="40" height="40">
+            <img src="{{ $profilePic }}" alt="Profile Picture" class="rounded-circle" width="40" height="40" style="object-fit: cover;">
             <h5 class="ms-2 mb-0">{{ $username }}</h5>
         </div>
 
@@ -22,8 +22,8 @@
             </div>
 
             <!-- Like Count and Post Description -->
-            <p><strong>{{ $likes }} likes</strong></p>
-            <p><strong>{{ $username }}</strong> {{ $description }}</p>
+            <p><strong>{{ $likes }} likes </strong>/ price:<strong> {{ $price }}</strong></p>
+            <p><strong>{{ $username }}</strong>: {{ $description }}</p>
         </div>
 
     </div>
