@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('style/layout.css') }}">
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,37 +30,37 @@
 <body>
 
 <!-- Logo at the Top -->
-<header class="text-center py-3 border-bottom">
-    <h1 class="logo">Service</h1>
+<header class="custom-header">
+    <h1 class="logo">SkillSource</h1>
 </header>
 
 <!-- Main Content -->
-<main class="container my-4">
+<main class="my-4">
     @yield('content')
 </main>
 
 <!-- Bottom Dark Navigation Bar -->
-<nav class="navbar navbar-dark bg-dark fixed-bottom border-top" style="padding: 0.5rem 0;">
+<nav class="custom-navbar">
     <div class="container d-flex justify-content-around">
         <!-- Home -->
         <a href="{{route('home')}}" class="navbar-icons text-center" style="font-size: 1rem; padding: 0.4rem;">
             <i class="bi bi-house-door" style="font-size: 1.25rem;"></i>
-            <div class="small" style="font-size: 0.8rem;">Home</div>
+            <!-- <div class="small" style="font-size: 0.8rem;">Home</div> -->
         </a>
         <!-- Profile -->
         <a href="{{route('profile')}}" class="navbar-icons text-center" style="font-size: 1rem; padding: 0.4rem;">
-            <i class="bi bi-person" style="font-size: 1.25rem;"></i>
-            <div class="small" style="font-size: 0.8rem;">Profile</div>
+            <i class="bi bi-person" style="font-size: 1.5rem;"></i>
+            <!-- <div class="small" style="font-size: 0.8rem;">Profile</div> -->
         </a>
         <!-- Chat -->
         <a href="{{route('chat')}}" class="navbar-icons text-center" style="font-size: 1rem; padding: 0.4rem;">
             <i class="bi bi-chat" style="font-size: 1.25rem;"></i>
-            <div class="small" style="font-size: 0.8rem;">Chat</div>
+            <!-- <div class="small" style="font-size: 0.8rem;">Chat</div> -->
         </a>
         <!-- Booked -->
         <a href="{{route('booked')}}" class="navbar-icons text-center" style="font-size: 1rem; padding: 0.4rem;">
             <i class="bi bi-calendar-check" style="font-size: 1.25rem;"></i>
-            <div class="small" style="font-size: 0.8rem;">Booked</div>
+            <!-- <div class="small" style="font-size: 0.8rem;">Booked</div> -->
         </a>
     </div>
 </nav>

@@ -1,0 +1,76 @@
+.custom-card {
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  width: 100%;
+}
+
+.card-header {
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-header p {
+  font-size: 14px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.card-bottom {
+  padding: 10px 20px;
+}
+
+.card-likes {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.card-profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.price-tag {
+  font-size: 14px;
+  margin: 0;
+}
+
+.like-icon * {
+  color: rgb(167, 0, 0) !important;
+}
+
+.send-icon {
+  height: 6px;
+  width: 10px;
+}
+
+.send-icon * {
+  color: rgb(63, 115, 184) !important;
+}
+
+.card-image {
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

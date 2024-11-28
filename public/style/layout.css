@@ -1,0 +1,44 @@
+body {
+    background-color: rgba(0, 0, 0, 1) !important;
+}
+
+* {
+	color: white;
+}
+
+.custom-navbar {
+    padding: 6px 0;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.custom-navbar a {
+    color: white;
+}
+
+.custom-navbar a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.custom-header {
+    padding: 10px 26px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.custom-header h1 {
+    font-size: 24px;
+    margin: 0;
+}
